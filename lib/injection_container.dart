@@ -2,7 +2,6 @@ import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:interview_project/application/use_cases/config/config.dart';
@@ -36,24 +35,10 @@ Future<void> init() async {
   sl.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(DataConnectionChecker()));
   sl.registerLazySingleton<Client>(() => Client(dioClient));
-  sl.registerLazySingleton<IOSFlutterLocalNotificationsPlugin>(
-      () => IOSFlutterLocalNotificationsPlugin());
-  sl.registerLazySingleton<FlutterLocalNotificationsPlugin>(
-      () => FlutterLocalNotificationsPlugin());
-  sl.registerLazySingleton<AndroidNotificationChannel>(() {
-    return AndroidNotificationChannel(
-      'high_importance_channel', // id
-      'High Importance Notifications', // title
-      description:
-          'This channel is used for important notifications.', // description
-      importance: Importance.high,
-    );
-  });
 
   //! Database
   final db = await BaseDatabase().getDatabase();
   sl.registerLazySingleton(() => db);
-
   sl.registerLazySingleton<LocalDatabase>(() => ILocalDatabase(sl()));
 
   //! Storage
