@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interview_project/presentation/widgets/shared/dialog/easy_loading/easy_loading.dart';
 import 'package:interview_project/routes.dart';
-import 'application/state/config_bloc.dart';
 import 'injection_container.dart' as di;
 import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 
-late BaseOptions aqConfig;
+late BaseOptions config;
 
 void main() async {
-  aqConfig = BaseOptions(
+  config = BaseOptions(
     validateStatus: (status) => status == 200,
     baseUrl: '',
     connectTimeout: 120 * 1000,
@@ -34,7 +32,6 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> with WidgetsBindingObserver {
   final navigatorKey = GlobalKey<NavigatorState>();
-  late ConfigBloc configBloc;
 
   BuildContext get navContext => navigatorKey.currentContext!;
 
@@ -44,8 +41,6 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     super.initState();
 
     WidgetsBinding.instance.addObserver(this);
-
-    configBloc = ConfigBloc()..getTest();
   }
 
   @override
@@ -57,28 +52,18 @@ class _AppState extends State<App> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<ConfigBloc>.value(value: configBloc),
-      ],
-      child: BlocBuilder<ConfigBloc, ConfigState>(
-        buildWhen: (p, c) => p.languageFont != c.languageFont,
-        builder: (_, state) {
-          return MaterialApp(
-            initialRoute: Routes.home,
-            navigatorKey: navigatorKey,
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: (settings) {
-              return Routes.onGenerateRoute(
-                navContext,
-                settings,
-              );
-            },
-            builder: EasyLoading.init(
-              builder: (_, child) => child!,
-            ),
-          );
-        },
+    return MaterialApp(
+      initialRoute: Routes.initRoute,
+      navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: (settings) {
+        return Routes.onGenerateRoute(
+          navContext,
+          settings,
+        );
+      },
+      builder: EasyLoading.init(
+        builder: (_, child) => child!,
       ),
     );
   }

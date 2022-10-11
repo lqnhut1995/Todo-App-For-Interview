@@ -1800,91 +1800,102 @@ abstract class Other<T> implements ValueFailure<T> {
 }
 
 /// @nodoc
-mixin _$ConfigFailure {
+mixin _$ListFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unableToGetTable,
+    required TResult Function() unableToGetToSellList,
+    required TResult Function() unableToGetToBuyList,
+    required TResult Function() unableToGetToCallList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unableToGetTable,
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unableToGetTable,
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UnableToGetTable value) unableToGetTable,
+    required TResult Function(_UnableToGetToSell value) unableToGetToSellList,
+    required TResult Function(_UnableToGetToBuy value) unableToGetToBuyList,
+    required TResult Function(_UnableToGetToCall value) unableToGetToCallList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UnableToGetTable value)? unableToGetTable,
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UnableToGetTable value)? unableToGetTable,
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConfigFailureCopyWith<$Res> {
-  factory $ConfigFailureCopyWith(
-          ConfigFailure value, $Res Function(ConfigFailure) then) =
-      _$ConfigFailureCopyWithImpl<$Res>;
+abstract class $ListFailureCopyWith<$Res> {
+  factory $ListFailureCopyWith(
+          ListFailure value, $Res Function(ListFailure) then) =
+      _$ListFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ConfigFailureCopyWithImpl<$Res>
-    implements $ConfigFailureCopyWith<$Res> {
-  _$ConfigFailureCopyWithImpl(this._value, this._then);
+class _$ListFailureCopyWithImpl<$Res> implements $ListFailureCopyWith<$Res> {
+  _$ListFailureCopyWithImpl(this._value, this._then);
 
-  final ConfigFailure _value;
+  final ListFailure _value;
   // ignore: unused_field
-  final $Res Function(ConfigFailure) _then;
+  final $Res Function(ListFailure) _then;
 }
 
 /// @nodoc
-abstract class _$$_UnableToGetTableCopyWith<$Res> {
-  factory _$$_UnableToGetTableCopyWith(
-          _$_UnableToGetTable value, $Res Function(_$_UnableToGetTable) then) =
-      __$$_UnableToGetTableCopyWithImpl<$Res>;
+abstract class _$$_UnableToGetToSellCopyWith<$Res> {
+  factory _$$_UnableToGetToSellCopyWith(_$_UnableToGetToSell value,
+          $Res Function(_$_UnableToGetToSell) then) =
+      __$$_UnableToGetToSellCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnableToGetTableCopyWithImpl<$Res>
-    extends _$ConfigFailureCopyWithImpl<$Res>
-    implements _$$_UnableToGetTableCopyWith<$Res> {
-  __$$_UnableToGetTableCopyWithImpl(
-      _$_UnableToGetTable _value, $Res Function(_$_UnableToGetTable) _then)
-      : super(_value, (v) => _then(v as _$_UnableToGetTable));
+class __$$_UnableToGetToSellCopyWithImpl<$Res>
+    extends _$ListFailureCopyWithImpl<$Res>
+    implements _$$_UnableToGetToSellCopyWith<$Res> {
+  __$$_UnableToGetToSellCopyWithImpl(
+      _$_UnableToGetToSell _value, $Res Function(_$_UnableToGetToSell) _then)
+      : super(_value, (v) => _then(v as _$_UnableToGetToSell));
 
   @override
-  _$_UnableToGetTable get _value => super._value as _$_UnableToGetTable;
+  _$_UnableToGetToSell get _value => super._value as _$_UnableToGetToSell;
 }
 
 /// @nodoc
 
-class _$_UnableToGetTable implements _UnableToGetTable {
-  const _$_UnableToGetTable();
+class _$_UnableToGetToSell implements _UnableToGetToSell {
+  const _$_UnableToGetToSell();
 
   @override
   String toString() {
-    return 'ConfigFailure.unableToGetTable()';
+    return 'ListFailure.unableToGetToSellList()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnableToGetTable);
+        (other.runtimeType == runtimeType && other is _$_UnableToGetToSell);
   }
 
   @override
@@ -1893,27 +1904,33 @@ class _$_UnableToGetTable implements _UnableToGetTable {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unableToGetTable,
+    required TResult Function() unableToGetToSellList,
+    required TResult Function() unableToGetToBuyList,
+    required TResult Function() unableToGetToCallList,
   }) {
-    return unableToGetTable();
+    return unableToGetToSellList();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unableToGetTable,
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
   }) {
-    return unableToGetTable?.call();
+    return unableToGetToSellList?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unableToGetTable,
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
     required TResult orElse(),
   }) {
-    if (unableToGetTable != null) {
-      return unableToGetTable();
+    if (unableToGetToSellList != null) {
+      return unableToGetToSellList();
     }
     return orElse();
   }
@@ -1921,32 +1938,260 @@ class _$_UnableToGetTable implements _UnableToGetTable {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UnableToGetTable value) unableToGetTable,
+    required TResult Function(_UnableToGetToSell value) unableToGetToSellList,
+    required TResult Function(_UnableToGetToBuy value) unableToGetToBuyList,
+    required TResult Function(_UnableToGetToCall value) unableToGetToCallList,
   }) {
-    return unableToGetTable(this);
+    return unableToGetToSellList(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_UnableToGetTable value)? unableToGetTable,
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
   }) {
-    return unableToGetTable?.call(this);
+    return unableToGetToSellList?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UnableToGetTable value)? unableToGetTable,
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
     required TResult orElse(),
   }) {
-    if (unableToGetTable != null) {
-      return unableToGetTable(this);
+    if (unableToGetToSellList != null) {
+      return unableToGetToSellList(this);
     }
     return orElse();
   }
 }
 
-abstract class _UnableToGetTable implements ConfigFailure {
-  const factory _UnableToGetTable() = _$_UnableToGetTable;
+abstract class _UnableToGetToSell implements ListFailure {
+  const factory _UnableToGetToSell() = _$_UnableToGetToSell;
+}
+
+/// @nodoc
+abstract class _$$_UnableToGetToBuyCopyWith<$Res> {
+  factory _$$_UnableToGetToBuyCopyWith(
+          _$_UnableToGetToBuy value, $Res Function(_$_UnableToGetToBuy) then) =
+      __$$_UnableToGetToBuyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UnableToGetToBuyCopyWithImpl<$Res>
+    extends _$ListFailureCopyWithImpl<$Res>
+    implements _$$_UnableToGetToBuyCopyWith<$Res> {
+  __$$_UnableToGetToBuyCopyWithImpl(
+      _$_UnableToGetToBuy _value, $Res Function(_$_UnableToGetToBuy) _then)
+      : super(_value, (v) => _then(v as _$_UnableToGetToBuy));
+
+  @override
+  _$_UnableToGetToBuy get _value => super._value as _$_UnableToGetToBuy;
+}
+
+/// @nodoc
+
+class _$_UnableToGetToBuy implements _UnableToGetToBuy {
+  const _$_UnableToGetToBuy();
+
+  @override
+  String toString() {
+    return 'ListFailure.unableToGetToBuyList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UnableToGetToBuy);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unableToGetToSellList,
+    required TResult Function() unableToGetToBuyList,
+    required TResult Function() unableToGetToCallList,
+  }) {
+    return unableToGetToBuyList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
+  }) {
+    return unableToGetToBuyList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
+    required TResult orElse(),
+  }) {
+    if (unableToGetToBuyList != null) {
+      return unableToGetToBuyList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UnableToGetToSell value) unableToGetToSellList,
+    required TResult Function(_UnableToGetToBuy value) unableToGetToBuyList,
+    required TResult Function(_UnableToGetToCall value) unableToGetToCallList,
+  }) {
+    return unableToGetToBuyList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
+  }) {
+    return unableToGetToBuyList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
+    required TResult orElse(),
+  }) {
+    if (unableToGetToBuyList != null) {
+      return unableToGetToBuyList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToGetToBuy implements ListFailure {
+  const factory _UnableToGetToBuy() = _$_UnableToGetToBuy;
+}
+
+/// @nodoc
+abstract class _$$_UnableToGetToCallCopyWith<$Res> {
+  factory _$$_UnableToGetToCallCopyWith(_$_UnableToGetToCall value,
+          $Res Function(_$_UnableToGetToCall) then) =
+      __$$_UnableToGetToCallCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UnableToGetToCallCopyWithImpl<$Res>
+    extends _$ListFailureCopyWithImpl<$Res>
+    implements _$$_UnableToGetToCallCopyWith<$Res> {
+  __$$_UnableToGetToCallCopyWithImpl(
+      _$_UnableToGetToCall _value, $Res Function(_$_UnableToGetToCall) _then)
+      : super(_value, (v) => _then(v as _$_UnableToGetToCall));
+
+  @override
+  _$_UnableToGetToCall get _value => super._value as _$_UnableToGetToCall;
+}
+
+/// @nodoc
+
+class _$_UnableToGetToCall implements _UnableToGetToCall {
+  const _$_UnableToGetToCall();
+
+  @override
+  String toString() {
+    return 'ListFailure.unableToGetToCallList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UnableToGetToCall);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unableToGetToSellList,
+    required TResult Function() unableToGetToBuyList,
+    required TResult Function() unableToGetToCallList,
+  }) {
+    return unableToGetToCallList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
+  }) {
+    return unableToGetToCallList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unableToGetToSellList,
+    TResult Function()? unableToGetToBuyList,
+    TResult Function()? unableToGetToCallList,
+    required TResult orElse(),
+  }) {
+    if (unableToGetToCallList != null) {
+      return unableToGetToCallList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UnableToGetToSell value) unableToGetToSellList,
+    required TResult Function(_UnableToGetToBuy value) unableToGetToBuyList,
+    required TResult Function(_UnableToGetToCall value) unableToGetToCallList,
+  }) {
+    return unableToGetToCallList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
+  }) {
+    return unableToGetToCallList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnableToGetToSell value)? unableToGetToSellList,
+    TResult Function(_UnableToGetToBuy value)? unableToGetToBuyList,
+    TResult Function(_UnableToGetToCall value)? unableToGetToCallList,
+    required TResult orElse(),
+  }) {
+    if (unableToGetToCallList != null) {
+      return unableToGetToCallList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToGetToCall implements ListFailure {
+  const factory _UnableToGetToCall() = _$_UnableToGetToCall;
 }

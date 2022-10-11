@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AQColors {
-  AQColors._();
+class IColors {
+  IColors._();
 
   static const primaryColor = veryDarkGrayishBlue;
   static final secondaryColor = darkGrayishBlueOpacity;

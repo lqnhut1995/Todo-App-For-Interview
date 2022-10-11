@@ -22,8 +22,42 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScaffold(
-      body: Center(child: Text('Welcome')),
+    return SafeArea(
+      child: BaseScaffold(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: Spacing.s),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ITextButton(
+                  title: 'Call List',
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .pushNamed(Routes.callList);
+                  },
+                ),
+                vSpaceL,
+                ITextButton(
+                  title: 'Buy List',
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .pushNamed(Routes.buyList);
+                  },
+                ),
+                vSpaceL,
+                ITextButton(
+                  title: 'Sell List',
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .pushNamed(Routes.sellList);
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
