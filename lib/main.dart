@@ -12,7 +12,7 @@ late BaseOptions config;
 void main() async {
   config = BaseOptions(
     validateStatus: (status) => status == 200,
-    baseUrl: '',
+    baseUrl: 'https://my-json-server.typicode.com',
     connectTimeout: 120 * 1000,
     receiveTimeout: 120 * 1000,
   );

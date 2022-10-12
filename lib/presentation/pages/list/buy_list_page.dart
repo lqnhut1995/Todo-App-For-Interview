@@ -7,30 +7,54 @@ class BuyListPage extends StatefulWidget {
   State<StatefulWidget> createState() => _BuyListPageState();
 }
 
-class _BuyListPageState extends State<BuyListPage> {
+class _BuyListPageState extends State<BuyListPage> with AfterLayoutMixin {
+  late BuyBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = BuyBloc();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<BuyBloc>(
-      create: (context) => BuyBloc()..getToBuyList(),
-      child: BaseScaffold(
-        appBar: AppBar(title: Text('Buy List')),
-        body: BlocBuilder<BuyBloc, BuyState>(
-          buildWhen: (p, c) => p.buyList != c.buyList,
-          builder: (_, state) {
-            final buyList = state.buyList ?? [];
-            return ListView.separated(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.s, vertical: Spacing.l),
-              itemCount: buyList.length,
-              itemBuilder: (_, i) => _BuyItem(buyList[i]),
-              separatorBuilder: (_, i) => const Divider(
-                height: 50,
-                color: Colors.grey,
-              ),
-            );
-          },
+      create: (context) => _bloc..getToBuyList(),
+      child: BlocListener<BuyBloc, BuyState>(
+        listener: (context, state) {
+          state.status?.maybeMap(
+            orElse: () => dismissLoading(),
+            busy: (_) => showLoading(),
+          );
+        },
+        child: BaseScaffold(
+          appBar: AppBar(title: Text('Buy List')),
+          body: BlocBuilder<BuyBloc, BuyState>(
+            buildWhen: (p, c) => p.buyList != c.buyList,
+            builder: (_, state) {
+              final buyList = state.buyList ?? [];
+              return ListView.separated(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Spacing.s, vertical: Spacing.l),
+                itemCount: buyList.length,
+                itemBuilder: (_, i) => _BuyItem(buyList[i]),
+                separatorBuilder: (_, i) => const Divider(
+                  height: 50,
+                  color: Colors.grey,
+                ),
+              );
+            },
+          ),
         ),
       ),
+    );
+  }
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    _bloc.state.status?.maybeMap(
+      orElse: () => dismissLoading(),
+      busy: (_) => showLoading(),
     );
   }
 }
